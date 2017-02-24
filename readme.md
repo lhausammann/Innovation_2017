@@ -3,6 +3,12 @@ Sudoku Solver GUI
 
 For the Ringier Innovation Day 2017.
 
+Installation
+-------------
+- check out master
+- board.html is the working example. Open it in your browser and input some numbers in to the sudoku solver.
+
+
 
 Goals:
 ------
@@ -33,8 +39,7 @@ Goals reached?
 
 
 Conclusion
-==========
+-----------
 
 Innovation day was much fun, not all goals reached as plannned. React seems really promising for composing components (board, grid, cesll). Structure worked out well, but state handling is difficult (best way to propagate state changes to children not figure out during that day).
-
 
