@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sudoku Board</title>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script src="https://fb.me/react-15.0.0.js"></script>
+    <script src="https://fb.me/react-dom-15.0.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <script type="text/babel">
+      
+    var Board = React.createClass({
+        render: function() {
+            const style = {
+            width: 300,
+          };
+
+          return <div style={style}>{this.props.children}</div>
+        }
+      });
+
+      var Grid = React.createClass({
+
+        render: function() {
+          const style = {
+            width: 84,
+            border: "1px solid black",
+            float: "left",
+          };
+
+          return <div style={style}>{this.props.children}</div>
+        }
+      });
+
+      var Cell = React.createClass({
+          
+        render: function() {
+          var cellStyle = {
+            padding: 3,
+            margin: 3,
+            width: 15,
+            height: 15,
+            backgroundColor: "#CCCCCC",
+            float: "left",
+          };
+
+          return (
+            <p style={cellStyle}>{this.props.message}</p>
+          )
+        }
+      });
+
+
+      // Main method
+      ReactDOM.render(
+      <Board>
+      <Grid message="Sali!">
+          <Cell message="1" />
+          <Cell message="2" />
+          <Cell message="3" />
+          <Cell message="4" />
+          <Cell message="5" />
+          <Cell message="6" />
+          <Cell message="7" />
+          <Cell message="8" />
+          <Cell message="9" />
+      </Grid>
+
+      <Grid message="Sali!">
+          <Cell message="1" />
+          <Cell message="2" />
+          <Cell message="3" />
+          <Cell message="4" />
+          <Cell message="5" />
+          <Cell message="6" />
+          <Cell message="7" />
+          <Cell message="8" />
+          <Cell message="9" />
+      </Grid>
+
+      <Grid message="Sali!">
+          <Cell message="1" />
+          <Cell message="2" />
+          <Cell message="3" />
+          <Cell message="4" />
+          <Cell message="5" />
+          <Cell message="6" />
+          <Cell message="7" />
+          <Cell message="8" />
+          <Cell message="9" />
+      </Grid>
+
+      <Grid message="Sali!">
+          <Cell message="1" />
+          <Cell message="2" />
+          <Cell message="3" />
+          <Cell message="4" />
+          <Cell message="5" />
+          <Cell message="6" />
+          <Cell message="7" />
+          <Cell message="8" />
+          <Cell message="9" />
+      </Grid>
+
+      <Grid>
+          <Cell message="1" />
+          <Cell message="2" />
+          <Cell message="3" />
+          <Cell message="4" />
+          <Cell message="5" />
+          <Cell message="6" />
+          <Cell message="7" />
+          <Cell message="8" />
+          <Cell message="9" />
+      </Grid>
+
+      <Grid message>
+          <Cell message="1" />
+          <Cell message="2" />
+          <Cell message="3" />
+          <Cell message="4" />
+          <Cell message="5" />
+          <Cell message="6" />
+          <Cell message="7" />
+          <Cell message="8" />
+          <Cell message="9" />
+      </Grid>
+
+          <Grid message="Sali!">
+          <Cell message="1" />
+          <Cell message="2" />
+          <Cell message="3" />
+          <Cell message="4" />
+          <Cell message="5" />
+          <Cell message="6" />
+          <Cell message="7" />
+          <Cell message="8" />
+          <Cell message="9" />
+      </Grid>
+
+      <Grid>
+          <Cell message="1" />
+          <Cell message="2" />
+          <Cell message="3" />
+          <Cell message="4" />
+          <Cell message="5" />
+          <Cell message="6" />
+          <Cell message="7" />
+          <Cell message="8" />
+          <Cell message="9" />
+      </Grid>
+
+      <Grid>
+          <Cell message="1" />
+          <Cell message="2" />
+          <Cell message="3" />
+          <Cell message="4" />
+          <Cell message="5" />
+          <Cell message="6" />
+          <Cell message="7" />
+          <Cell message="8" />
+          <Cell message="9" />
+      </Grid>
+      </Board>
+
+      ,document.getElementById('container')
+      );
+    </script>
+  </body>
+</html>
