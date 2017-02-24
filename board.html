@@ -57,6 +57,7 @@
         },
 
          check: function (value, oi,oj) {
+         if (!value) return false;
          var field = this.field;
           // check row
           for (var i=0;i<9;i++)
