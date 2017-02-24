@@ -10,8 +10,114 @@
     <script src="https://fb.me/react-dom-15.0.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
     <script type="text/babel">
-      
+
     var Controls = React.createClass({
+      field: new Array(),
+
+      solveSudoku: function() {
+        console.log("solving!");
+        return this.solve(0,0,1,1);
+      },
+
+      solve: function(i,j,value,level){
+          console.log(i,j,value,level);
+          var field = this.field;
+          console.log("in solve");
+          console.log(field);
+          var rowChange = i == 8;
+          var nextI = rowChange ? 0 : i + 1;
+          var nextJ = rowChange ? j + 1 : j;
+          // skip pre-filled fields starting with a new value on the next field.
+          if (field[i][j] > 0) {
+            
+            return this.solve(nextI,nextJ,1, level + 1); // skip already solved fields and recurse.
+          }  
+          // try given value
+          console.log("trying value. i is: " + i);
+          if (this.check(value,i,j)) {
+            field[i][j] = value; // save value
+            if (j == 8 && i == 8) return true; // solved!
+            if (j == 8 && i == 7 && field[8][8] > 0) return true; // solved! - because last field pre-filled out.
+            // could work -- start solving the next field
+            if (true == this.solve(nextI, nextJ, 1, level + 1)) { // descend to next field...
+              // path solves the sudoku
+              console.log("solved!")
+              return true;
+            }
+            // else this way does not work we clear the path below and increment value
+
+          }
+          // else this.check was not successful we clear the path below and incrment value
+          
+          // erase this path and try another value.
+          console.log("erasing path");
+          field[i][j] = 0;
+          // no need to recurse if value is already 9 (all values tested), otherwise recurse.
+          return value == 9 ? false : this.solve(i,j, value + 1, level + 1); 
+        },
+
+         check: function (value, oi,oj) {
+         var field = this.field;
+          // check row
+          for (var i=0;i<9;i++)
+            if (value == field[i][oj]) return false;
+          
+          // check column
+          for (var j=0;j<9;j++)
+            if (value == field[oi][j]) 
+              
+                return false;
+          // check field
+          var startX = parseInt(oi / 3) * 3;
+          var startY = parseInt(oj / 3) * 3;
+          for (var x = startX;x<startX + 3;x++)
+            for (var y=startY;y<startY + 3;y++)
+              if (field[x][y] == value)
+              
+                return false; 
+          
+          return true;
+        },
+        
+        solveIt: function() {
+          var field = this.field;
+          // due to time restriction on the innovation day we solve it the old way:
+          // array is mapped by input ids.
+
+          // first we loop through the array to collect values.
+          for (var i=0;i<9;i++) {
+            field[i] = [];
+            for (var j=0;j<9;j++) {
+              field[i][j] = 0;
+            }
+          }
+
+          var inputs = document.getElementsByTagName("input");
+          for (var i = 0; i < inputs.length;i++) {
+            var id = inputs[i].getAttribute("id");
+            if (inputs[i].value) {
+            var parts = id.split("_");
+              var x = parts[0]; 
+              var y=parts[1];
+              field[x][y] = inputs[i].value * 1;
+              console.log("Found value on " + x + "/" + y);
+            }
+          }
+          this.field = field;
+          this.solveSudoku();
+          console.log(this.field);
+
+          // and display it again.
+          for (var y = 0;y<9;y++) {
+            for(var x = 0; x <9; x++)
+              document.getElementById(x + "_" + y).value = field[x][y];
+          }
+
+
+          console.log("Solving dude...");
+        },
+
+
         render: function() {
             const style = {
             width: 252 -5 + 2 ,
@@ -21,18 +127,23 @@
             marginTop: 5,
           };
 
-          return <div style={style}>Sali</div>
+          return <button  onClick={this.solveIt} style={style}>Solve!</button>
         }
+
       });
 
 
     var Board = React.createClass({
+        getInitialState: function() {
+          return {};
+        },
+
         render: function() {
             const style = {
             width: 300,
           };
 
-          return <div style={style}>{this.props.children}</div>
+          return <div style={style} mid="{this.props.id}">{this.props.children}</div>
         }
       });
 
@@ -60,123 +171,129 @@
             backgroundColor: "#CCCCCC",
             float: "left",
           };
+          var inputStyle = {
+            width: 10,
+            height: 10,
+          };
 
           return (
-            <p style={cellStyle}>{this.props.value}</p>
+            <p style={cellStyle}>
+              <input type="text" style={inputStyle} title={this.props.id} id={this.props.id} />
+            </p>
           )
         }
       });
 
 
-      // Main method
+      // Main method -- id is x_y
       ReactDOM.render(
-      <Board>
+      <Board id="board">
       <Grid value="Sali!">
-          <Cell value="1" />
-          <Cell value="2" />
-          <Cell value="3" />
-          <Cell value="4" />
-          <Cell value="5" />
-          <Cell value="6" />
-          <Cell value="7" />
-          <Cell value="8" />
-          <Cell value="9" />
+          <Cell value="1" id="0_0"/>
+          <Cell value="2" id="1_0"/>
+          <Cell value="3" id="2_0"/>
+          <Cell value="4" id="0_1"/>
+          <Cell value="5" id="1_1"/>
+          <Cell value="6" id="2_1"/>
+          <Cell value="7" id="0_2"/>
+          <Cell value="8" id="1_2"/>
+          <Cell value="9" id="2_2"/>
       </Grid>
 
       <Grid value="Sali!">
-          <Cell value="1" />
-          <Cell value="2" />
-          <Cell value="3" />
-          <Cell value="4" />
-          <Cell value="5" />
-          <Cell value="6" />
-          <Cell value="7" />
-          <Cell value="8" />
-          <Cell value="9" />
+          <Cell value="1" id="3_0"/>
+          <Cell value="2" id="4_0"/>
+          <Cell value="3" id="5_0"/>
+          <Cell value="4" id="3_1"/>
+          <Cell value="5" id="4_1"/>
+          <Cell value="6" id="5_1"/>
+          <Cell value="7" id="3_2"/>
+          <Cell value="8" id="4_2"/>
+          <Cell value="9" id="5_2"/>
       </Grid>
 
       <Grid value="Sali!">
-          <Cell value="1" />
-          <Cell value="2" />
-          <Cell value="3" />
-          <Cell value="4" />
-          <Cell value="5" />
-          <Cell value="6" />
-          <Cell value="7" />
-          <Cell value="8" />
-          <Cell value="9" />
+          <Cell value="1" id="6_0"/>
+          <Cell value="2" id="7_0"/>
+          <Cell value="3" id="8_0"/>
+          <Cell value="4" id="6_1"/>
+          <Cell value="5" id="7_1"/>
+          <Cell value="6" id="8_1"/>
+          <Cell value="7" id="6_2"/>
+          <Cell value="8" id="7_2"/>
+          <Cell value="9" id="8_2"/>
       </Grid>
 
       <Grid value="Sali!">
-          <Cell value="1" />
-          <Cell value="2" />
-          <Cell value="3" />
-          <Cell value="4" />
-          <Cell value="5" />
-          <Cell value="6" />
-          <Cell value="7" />
-          <Cell value="8" />
-          <Cell value="9" />
+          <Cell value="1" id="0_3"/>
+          <Cell value="2" id="1_3"/>
+          <Cell value="3" id="2_3"/>
+          <Cell value="4" id="0_4"/>
+          <Cell value="5" id="1_4"/>
+          <Cell value="6" id="2_4"/>
+          <Cell value="7" id="0_5"/>
+          <Cell value="8" id="1_5"/>
+          <Cell value="9" id="2_5"/>
       </Grid>
 
       <Grid>
-          <Cell value="1" />
-          <Cell value="2" />
-          <Cell value="3" />
-          <Cell value="4" />
-          <Cell value="5" />
-          <Cell value="6" />
-          <Cell value="7" />
-          <Cell value="8" />
-          <Cell value="9" />
+          <Cell value="1" id="3_3" />
+          <Cell value="2" id="4_3"/>
+          <Cell value="3" id="5_3"/>
+          <Cell value="4" id="3_4"/>
+          <Cell value="5" id="4_4"/>
+          <Cell value="6" id="5_4"/>
+          <Cell value="7" id="3_5"/>
+          <Cell value="8" id="4_5"/>
+          <Cell value="9" id="5_5"/>
       </Grid>
 
       <Grid value>
-          <Cell value="1" />
-          <Cell value="2" />
-          <Cell value="3" />
-          <Cell value="4" />
-          <Cell value="5" />
-          <Cell value="6" />
-          <Cell value="7" />
-          <Cell value="8" />
-          <Cell value="9" />
+          <Cell value="1" id="6_3"/>
+          <Cell value="2" id="7_3"/>
+          <Cell value="3" id="8_3"/>
+          <Cell value="4" id="6_4"/>
+          <Cell value="5" id="7_4"/>
+          <Cell value="6" id="8_4"/>
+          <Cell value="7" id="6_5"/>
+          <Cell value="8" id="7_5"/>
+          <Cell value="9" id="8_5"/>
       </Grid>
 
           <Grid value="Sali!">
-          <Cell value="1" />
-          <Cell value="2" />
-          <Cell value="3" />
-          <Cell value="4" />
-          <Cell value="5" />
-          <Cell value="6" />
-          <Cell value="7" />
-          <Cell value="8" />
-          <Cell value="9" />
+          <Cell value="1" id="0_6"/>
+          <Cell value="2" id="1_6"/>
+          <Cell value="3" id="2_6"/>
+          <Cell value="4" id="0_7"/>
+          <Cell value="5" id="1_7"/>
+          <Cell value="6" id="2_7"/>
+          <Cell value="7" id="0_8"/>
+          <Cell value="8" id="1_8"/>
+          <Cell value="9" id="2_8"/>
       </Grid>
 
       <Grid>
-          <Cell value="1" />
-          <Cell value="2" />
-          <Cell value="3" />
-          <Cell value="4" />
-          <Cell value="5" />
-          <Cell value="6" />
-          <Cell value="7" />
-          <Cell value="8" />
-          <Cell value="9" />
+          <Cell value="1" id="3_6"/>
+          <Cell value="2" id="4_6"/>
+          <Cell value="3" id="5_6"/>
+          <Cell value="4" id="3_7"/>
+          <Cell value="5" id="4_7"/>
+          <Cell value="6" id="5_7"/>
+          <Cell value="7" id="3_8"/>
+          <Cell value="8" id="4_8"/>
+          <Cell value="9" id="5_8"/>
       </Grid>
 
       <Grid>
-          <Cell value="1" />
-          <Cell value="2" />
-          <Cell value="3" />
-          <Cell value="4" />
-          <Cell value="5" />
-          <Cell value="6" />
-          <Cell value="7" />
-          <Cell value="8" />
-          <Cell value="9" />
+          <Cell value="1" id="6_6"/>
+          <Cell value="2" id="7_6"/>
+          <Cell value="3" id="8_6"/>
+          <Cell value="4" id="6_7"/>
+          <Cell value="5" id="7_7"/>
+          <Cell value="6" id="8_7"/>
+          <Cell value="7" id="6_8"/>
+          <Cell value="8" id="7_8"/>
+          <Cell value="9" id="8_8"/>
       </Grid>
 
       <Controls />

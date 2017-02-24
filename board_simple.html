@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<h1>Sudoku simplified</h1>
+  	<style>
+  		.cell {
+  			with: 50px;
+  			height: 50px;
+  			border: 1px solid black;
+  			float:left;
+  		}
+  	</style>
+
+    <title>Sudoku Board</title>
+    <script>
+    function writeBoard() {
+    	for(var i=0; i<9;i++) {
+    		for(var j=0;j<9;j++) {
+    			id = "x"+i+"y"+j;
+    			document.write("<div id='"+ id + "'' class='cell'>&nbps;</div>");
+
+    		}
+
+    	}
+    }
+
+    </script>
+  </head>
+  <body>
+  <div id="field">
+  <script>document.write(writeBoard());</script>
+  </div>
+
+  </body>
+</html>
