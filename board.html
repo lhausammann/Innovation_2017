@@ -11,6 +11,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
     <script type="text/babel">
       
+    var Controls = React.createClass({
+        render: function() {
+            const style = {
+            width: 252 -5 + 2 ,
+            clear: "both",
+            border: "1px solid black",
+            padding: 5,
+            marginTop: 5,
+          };
+
+          return <div style={style}>Sali</div>
+        }
+      });
+
+
     var Board = React.createClass({
         render: function() {
             const style = {
@@ -25,7 +40,7 @@
 
         render: function() {
           const style = {
-            width: 84,
+            width: 85,
             border: "1px solid black",
             float: "left",
           };
@@ -47,7 +62,7 @@
           };
 
           return (
-            <p style={cellStyle}>{this.props.message}</p>
+            <p style={cellStyle}>{this.props.value}</p>
           )
         }
       });
@@ -56,114 +71,117 @@
       // Main method
       ReactDOM.render(
       <Board>
-      <Grid message="Sali!">
-          <Cell message="1" />
-          <Cell message="2" />
-          <Cell message="3" />
-          <Cell message="4" />
-          <Cell message="5" />
-          <Cell message="6" />
-          <Cell message="7" />
-          <Cell message="8" />
-          <Cell message="9" />
+      <Grid value="Sali!">
+          <Cell value="1" />
+          <Cell value="2" />
+          <Cell value="3" />
+          <Cell value="4" />
+          <Cell value="5" />
+          <Cell value="6" />
+          <Cell value="7" />
+          <Cell value="8" />
+          <Cell value="9" />
       </Grid>
 
-      <Grid message="Sali!">
-          <Cell message="1" />
-          <Cell message="2" />
-          <Cell message="3" />
-          <Cell message="4" />
-          <Cell message="5" />
-          <Cell message="6" />
-          <Cell message="7" />
-          <Cell message="8" />
-          <Cell message="9" />
+      <Grid value="Sali!">
+          <Cell value="1" />
+          <Cell value="2" />
+          <Cell value="3" />
+          <Cell value="4" />
+          <Cell value="5" />
+          <Cell value="6" />
+          <Cell value="7" />
+          <Cell value="8" />
+          <Cell value="9" />
       </Grid>
 
-      <Grid message="Sali!">
-          <Cell message="1" />
-          <Cell message="2" />
-          <Cell message="3" />
-          <Cell message="4" />
-          <Cell message="5" />
-          <Cell message="6" />
-          <Cell message="7" />
-          <Cell message="8" />
-          <Cell message="9" />
+      <Grid value="Sali!">
+          <Cell value="1" />
+          <Cell value="2" />
+          <Cell value="3" />
+          <Cell value="4" />
+          <Cell value="5" />
+          <Cell value="6" />
+          <Cell value="7" />
+          <Cell value="8" />
+          <Cell value="9" />
       </Grid>
 
-      <Grid message="Sali!">
-          <Cell message="1" />
-          <Cell message="2" />
-          <Cell message="3" />
-          <Cell message="4" />
-          <Cell message="5" />
-          <Cell message="6" />
-          <Cell message="7" />
-          <Cell message="8" />
-          <Cell message="9" />
-      </Grid>
-
-      <Grid>
-          <Cell message="1" />
-          <Cell message="2" />
-          <Cell message="3" />
-          <Cell message="4" />
-          <Cell message="5" />
-          <Cell message="6" />
-          <Cell message="7" />
-          <Cell message="8" />
-          <Cell message="9" />
-      </Grid>
-
-      <Grid message>
-          <Cell message="1" />
-          <Cell message="2" />
-          <Cell message="3" />
-          <Cell message="4" />
-          <Cell message="5" />
-          <Cell message="6" />
-          <Cell message="7" />
-          <Cell message="8" />
-          <Cell message="9" />
-      </Grid>
-
-          <Grid message="Sali!">
-          <Cell message="1" />
-          <Cell message="2" />
-          <Cell message="3" />
-          <Cell message="4" />
-          <Cell message="5" />
-          <Cell message="6" />
-          <Cell message="7" />
-          <Cell message="8" />
-          <Cell message="9" />
+      <Grid value="Sali!">
+          <Cell value="1" />
+          <Cell value="2" />
+          <Cell value="3" />
+          <Cell value="4" />
+          <Cell value="5" />
+          <Cell value="6" />
+          <Cell value="7" />
+          <Cell value="8" />
+          <Cell value="9" />
       </Grid>
 
       <Grid>
-          <Cell message="1" />
-          <Cell message="2" />
-          <Cell message="3" />
-          <Cell message="4" />
-          <Cell message="5" />
-          <Cell message="6" />
-          <Cell message="7" />
-          <Cell message="8" />
-          <Cell message="9" />
+          <Cell value="1" />
+          <Cell value="2" />
+          <Cell value="3" />
+          <Cell value="4" />
+          <Cell value="5" />
+          <Cell value="6" />
+          <Cell value="7" />
+          <Cell value="8" />
+          <Cell value="9" />
+      </Grid>
+
+      <Grid value>
+          <Cell value="1" />
+          <Cell value="2" />
+          <Cell value="3" />
+          <Cell value="4" />
+          <Cell value="5" />
+          <Cell value="6" />
+          <Cell value="7" />
+          <Cell value="8" />
+          <Cell value="9" />
+      </Grid>
+
+          <Grid value="Sali!">
+          <Cell value="1" />
+          <Cell value="2" />
+          <Cell value="3" />
+          <Cell value="4" />
+          <Cell value="5" />
+          <Cell value="6" />
+          <Cell value="7" />
+          <Cell value="8" />
+          <Cell value="9" />
       </Grid>
 
       <Grid>
-          <Cell message="1" />
-          <Cell message="2" />
-          <Cell message="3" />
-          <Cell message="4" />
-          <Cell message="5" />
-          <Cell message="6" />
-          <Cell message="7" />
-          <Cell message="8" />
-          <Cell message="9" />
+          <Cell value="1" />
+          <Cell value="2" />
+          <Cell value="3" />
+          <Cell value="4" />
+          <Cell value="5" />
+          <Cell value="6" />
+          <Cell value="7" />
+          <Cell value="8" />
+          <Cell value="9" />
       </Grid>
+
+      <Grid>
+          <Cell value="1" />
+          <Cell value="2" />
+          <Cell value="3" />
+          <Cell value="4" />
+          <Cell value="5" />
+          <Cell value="6" />
+          <Cell value="7" />
+          <Cell value="8" />
+          <Cell value="9" />
+      </Grid>
+
+      <Controls />
       </Board>
+
 
       ,document.getElementById('container')
       );

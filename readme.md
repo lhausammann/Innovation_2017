@@ -2,7 +2,10 @@
 
 Goals:
 - Have a react GUI.
-- Solve a given sudoku.
+- initial state, press button "solve".
+- Solve.
+
+Nice to have:
 - Show how its been solved.
 
 
