@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-11-29T21:12:38.031Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36" etag="UmkPnAGyo6qxjQnYBA9A" version="15.7.4" type="github">
+<mxfile host="app.diagrams.net" modified="2021-11-29T21:16:15.324Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36" etag="uHraDK3C7P4ERUw2iYWS" version="15.7.4" type="github">
   <diagram id="M0YHzILM9sNUAD_iwBFg" name="Page-1">
     <mxGraphModel dx="2122" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -113,10 +113,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="A3Im6yF8CqUOu0ioXcAd-21" value="Azure AD" style="shape=umlLifeline;participant=umlEntity;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="470" y="50" width="40" height="300" as="geometry" />
+          <mxGeometry x="470" y="50" width="46.5" height="300" as="geometry" />
         </mxCell>
         <mxCell id="A3Im6yF8CqUOu0ioXcAd-34" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="A3Im6yF8CqUOu0ioXcAd-21">
           <mxGeometry x="15" y="160" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="A3Im6yF8CqUOu0ioXcAd-80" value="" style="shape=mxgraph.cisco.security.lock;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;" vertex="1" parent="A3Im6yF8CqUOu0ioXcAd-21">
+          <mxGeometry x="-6.5" y="-22" width="53" height="61" as="geometry" />
         </mxCell>
         <mxCell id="A3Im6yF8CqUOu0ioXcAd-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
@@ -237,6 +240,34 @@
         </mxCell>
         <mxCell id="A3Im6yF8CqUOu0ioXcAd-70" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="1">
           <mxGeometry x="335" y="800" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="A3Im6yF8CqUOu0ioXcAd-73" value="" style="shape=rect;rSize=3;strokeColor=none;fillColor=#D2D3D5;gradientColor=none;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="150" y="9" width="147" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="A3Im6yF8CqUOu0ioXcAd-74" value="List comments" style="html=1;strokeWidth=1;shadow=0;dashed=0;shape=mxgraph.ios7ui.topButton;rSize=3;strokeColor=#D2D3D5;fontSize=8;fillColor=#F1F1F1;fontColor=#0080F0;resizeWidth=1;" vertex="1" parent="A3Im6yF8CqUOu0ioXcAd-73">
+          <mxGeometry width="138.03658536585365" height="20" relative="1" as="geometry">
+            <mxPoint x="5" y="5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A3Im6yF8CqUOu0ioXcAd-75" value="Edit comment&lt;br&gt;" style="shape=rect;html=1;strokeColor=#D2D3D5;fontSize=8;fillColor=#F1F1F1;fontColor=#0080F0;resizeWidth=1;" vertex="1" parent="A3Im6yF8CqUOu0ioXcAd-73">
+          <mxGeometry width="138.03658536585365" height="20" relative="1" as="geometry">
+            <mxPoint x="5" y="25" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A3Im6yF8CqUOu0ioXcAd-76" value="Label" style="shape=rect;html=1;strokeColor=#D2D3D5;fontSize=8;fillColor=#F1F1F1;fontColor=#0080F0;resizeWidth=1;" vertex="1" parent="A3Im6yF8CqUOu0ioXcAd-73">
+          <mxGeometry width="138.03658536585365" height="20" relative="1" as="geometry">
+            <mxPoint x="5" y="45" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A3Im6yF8CqUOu0ioXcAd-77" value="Label" style="html=1;strokeWidth=1;shadow=0;dashed=0;shape=mxgraph.ios7ui.bottomButton;rSize=3;strokeColor=#D2D3D5;fontSize=8;fillColor=#F1F1F1;fontColor=#0080F0;resizeWidth=1;" vertex="1" parent="A3Im6yF8CqUOu0ioXcAd-73">
+          <mxGeometry width="138.03658536585365" height="20" relative="1" as="geometry">
+            <mxPoint x="5" y="65" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A3Im6yF8CqUOu0ioXcAd-78" value="Cancel" style="html=1;strokeWidth=1;shadow=0;dashed=0;shape=mxgraph.ios7ui.marginRect;rx=5;ry=5;rectMargin=5;strokeColor=#D2D3D5;fontSize=8;fillColor=#ffffff;fontColor=#0080F0;resizeWidth=1;" vertex="1" parent="A3Im6yF8CqUOu0ioXcAd-73">
+          <mxGeometry y="1" width="147" height="30" relative="1" as="geometry">
+            <mxPoint y="-30" as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
